@@ -2,6 +2,7 @@
 """filtered_logger"""
 from typing import List
 import logging
+import re
 
 
 def filter_datum(fields: List[str], redaction: str, message: str,
@@ -14,5 +15,5 @@ def filter_datum(fields: List[str], redaction: str, message: str,
     separator: a string representing by which character is separating all
     fields in the log line (message)
     """
-    #logging.basicConfig(filename='myfile', level=logging.INFO)
-    loger.info()
+    pattern = f"({'|'.join(fields)})=([^\\{separator}]*)"
+    return re.sub(pattern, lambda m: f"{m.group(1)}={redaction}", message)
