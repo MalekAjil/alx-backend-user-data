@@ -10,11 +10,9 @@ class Auth:
         """ returns False - path and excluded_paths will be used later,"""
         return False
 
-
     def authorization_header(self, request=None) -> str:
         """returns None - request will be the Flask request object"""
         return None
-
 
     def current_user(self, request=None) -> TypeVar('User'):
         """returns None - request will be the Flask request object"""
