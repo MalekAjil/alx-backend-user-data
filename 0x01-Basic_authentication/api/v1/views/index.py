@@ -32,4 +32,4 @@ def unauthorized() -> str:
     Return:
       - Unauthorized
     """
-    return jsonify({"error": "Unauthorized"})
+    return jsonify({"error": "Unauthorized"}), abort(401)
