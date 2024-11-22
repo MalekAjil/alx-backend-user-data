@@ -30,6 +30,6 @@ def stats() -> str:
 def unauthorized() -> str:
     """ GET /api/v1/unauthorized
     Return:
-      - abort(401) of the API
+      - Unauthorized
     """
-    return jsonify({"status": "abort(401)"})
+    return jsonify({"error": "Unauthorized"})
